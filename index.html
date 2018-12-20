@@ -22,6 +22,14 @@
             left:250px;
             z-index:-1;
         }
+        
+        #sw {
+            font-family:arial;
+            font-size:8px;
+            font-style:initial;
+            color:black;
+            text-decoration: none!important;
+        }
 
         .hidden {
             display:none;  
@@ -38,7 +46,7 @@
 canvas { border: 3px dotted red; z-index:3;}
     </style>
       <h1 id="main-title">Happy Christmas</h1>
-      <h3><a id = "start" href ="javascript:void(0)"   onclick="festivities();">click to begin the festivities</a> </h3>
+      <h3><a id = "start" href ="javascript:void(0)"   onclick="festivities();">click to begin the festivities<span id="sw"> (seizure warning)</span></a>  </h3>
       <h3><a id = "stop" href ="javascript:void(0)" onclick="makeItStop();" class = "hidden">Make it stop!!!!!!!1</a></h3>
       <canvas id="canvas" height="500" width="500"></canvas>
       <img id="santa" class="hidden" src="https://i.imgur.com/UH45rWy.jpg"></img>
