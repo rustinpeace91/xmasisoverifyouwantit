@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+    <head>
+        <title>Christmas is Over if you want it</title>
+    </head>
+    <body id="bg" onload="draw();">
+    <style>
+        #main-title{
+            font-family:"Comic Sans MS", cursive, sans-serif;
+            color:red;
+            font-style:italic;
+        }
+        #start, #stop {
+            font-family:"Comic Sans MS", cursive, sans-serif;
+            font-size:32px;
+            font-style:italic;
+        }
+
+        #santa {
+            width:350px;
+            position:absolute;
+            top:90px;
+            left:250px;
+            z-index:-1;
+        }
+
+        .hidden {
+            display:none;  
+        }
+
+        .red {
+            background-color:red;
+        }
+
+        .green {
+            background-color:green;
+        }
+
+canvas { border: 3px dotted red; z-index:3;}
+    </style>
+      <h1 id="main-title">Happy Christmas</h1>
+      <h3><a id = "start" href ="javascript:void(0)"   onclick="festivities();">click to begin the festivities</a> </h3>
+      <h3><a id = "stop" href ="javascript:void(0)" onclick="makeItStop();" class = "hidden">Make it stop!!!!!!!1</a></h3>
+      <canvas id="canvas" height="500" width="500"></canvas>
+      <img id="santa" class="hidden" src="https://i.imgur.com/UH45rWy.jpg"></img>
+      <script>
+        var myTimer; 
+        let bg = document.getElementById("bg")
+        let santa = document.getElementById("santa");
+        let start = document.getElementById("start")
+        let stop = document.getElementById("stop")
+
+        function festivities(){
+        start.classList.add("hidden")
+        stop.classList.remove("hidden")
+        santa.classList.remove("hidden");
+        bg.classList.add("red")
+        myTimer = setInterval(function(){
+            if (bg.classList.contains("red")){
+            bg.classList.remove("red");
+            bg.classList.add("green");
+            } else {
+            bg.classList.remove("green");
+            bg.classList.add("red")
+            }
+        }, 200)
+        }
+
+        function makeItStop(){
+        clearInterval(myTimer);
+        stop.classList.add("hidden")
+        start.classList.remove("hidden")
+        santa.classList.add("hidden");
+        bg.classList.remove("red")
+        bg.classList.remove("green")
+        }
+
+        function draw() {
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const stump = canvas.getContext('2d')
+        ctx.fillStyle = 'green';
+        ctx.beginPath();
+        ctx.moveTo(82,75);
+        ctx.lineTo(118,75);
+        ctx.lineTo(100,35)
+        ctx.fill();
+        ctx.beginPath();
+        ctx.moveTo(50,150);
+        ctx.lineTo(150,150);
+        ctx.lineTo(100,50)
+        ctx.fill();
+        ctx.beginPath();
+        ctx.moveTo(35,200);
+        ctx.lineTo(165,200);
+        ctx.lineTo(100,50)
+        ctx.fill();
+        ctx.beginPath();
+        ctx.moveTo(40,200);
+        ctx.lineTo(160,200);
+        ctx.lineTo(100,50)
+        ctx.fill();  
+        ctx.closePath();
+        ctx.fillStyle='brown'
+        ctx.fillRect(90, 200, 20, 40)
+        
+        }      
+      </script>
+    </body>
+</html>
